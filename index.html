@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Area</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+    <h1>Type your message</h1>
+    <textarea id="area" onkeyup="livecount()"></textarea>
+    <p class="display">0/200</p>
+    </div>
+
+    <script>
+        
+
+        function livecount(){
+
+            let input = document.getElementById("area")
+            let paragraph = document.querySelector(".display")
+
+            let inputvalue = input.value
+
+            paragraph.textContent = inputvalue.length+"/200"
+
+            if(inputvalue.length>150){
+
+                paragraph.classList.add("pchange")
+            }
+
+            if(inputvalue.length == 200){
+
+                alert("You have exceeded the character limit")
+
+            }
+        }
+    </script>
+</body>
+</html>
